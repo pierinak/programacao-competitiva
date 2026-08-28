@@ -1,0 +1,16 @@
+def solve_B():
+    linha1 = input()
+    linha2 = input()
+    linha3 = input()
+    linha4 = input()
+    linha5 = input()
+ 
+    print(linha1)
+    print("Bravo, bravo!")
+    print(linha2)
+    print("Bravo, bravo!")
+    print(linha3)
+    print(linha4)
+    print(linha5)
+    print(linha5)
+ 
