@@ -1,19 +1,16 @@
- 
-def solve_L():
-    n, m = map(int, input().split())
-    grade = [input().strip() for _ in range(n)]
- 
-    base = int(grade[0][0])  # cor esperada na posição (0,0)
-    valido = True
-    for i in range(n):
-        linha = grade[i]
-        for j in range(m):
-            esperado = base ^ ((i + j) % 2)  # alterna a cada passo
-            if int(linha[j]) != esperado:
-                valido = False
-                break
-        if not valido:
+n, m = map(int, input().split())
+grid = [input().strip() for _ in range(n)]
+
+valid = True
+for i in range(n):
+    for j in range(m):
+        if j + 1 < m and grid[i][j] == grid[i][j + 1]:
+            valid = False
             break
- 
-    print("S" if valido else "N")
- 
+        if i + 1 < n and grid[i][j] == grid[i + 1][j]:
+            valid = False
+            break
+    if not valid:
+        break
+
+print("S" if valid else "N")   
