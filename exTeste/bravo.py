@@ -6,9 +6,9 @@ def solve_B():
     linha5 = input()
 
     print(linha1)
-    print("Bravo,bravo!")
+    print("Bravo, bravo!")
     print(linha2)
-    print("Bravo,bravo!")
+    print("Bravo, bravo!")
     print(linha3)
     print(linha4)
     print(linha5)
