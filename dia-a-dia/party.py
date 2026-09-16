@@ -1,42 +1,43 @@
-import sys
 import re
 from collections import deque
 
-valores = list(map(int, re.findall(r"-?\d+", sys.stdin.read())))
-indice = 0
-respostas = []
+results = []
 
-while indice < len(valores):
-    n = valores[indice]
-    indice += 1
+while True:
+    n = int(input())
 
     if n == 0:
         break
 
-    grafo = [[] for _ in range(1001)]
+    numbers = []
 
-    for _ in range(n):
-        x = valores[indice]
-        y = valores[indice + 1]
-        indice += 2
+    while len(numbers) < 2 * n:
+        line = input()
+        numbers.extend(map(int, re.findall(r"-?\d+", line)))
 
-        grafo[x].append(y)
-        grafo[y].append(x)
+    graph = [[] for _ in range(1001)]
 
-    visitados = [False] * 1001
-    fila = deque([1])
-    visitados[1] = True
+    for i in range(0, 2 * n, 2):
+        x = numbers[i]
+        y = numbers[i + 1]
+
+        graph[x].append(y)
+        graph[y].append(x)
+
+    visited = [False] * 1001
+    queue = deque([1])
+    visited[1] = True
     total = 0
 
-    while fila:
-        pessoa = fila.popleft()
+    while queue:
+        person = queue.popleft()
         total += 1
 
-        for vizinho in grafo[pessoa]:
-            if not visitados[vizinho]:
-                visitados[vizinho] = True
-                fila.append(vizinho)
+        for neighbor in graph[person]:
+            if not visited[neighbor]:
+                visited[neighbor] = True
+                queue.append(neighbor)
 
-    respostas.append(str(total))
+    results.append(str(total))
 
-print("\n".join(respostas))
+print("\n".join(results))
