@@ -9,3 +9,4 @@ for nota in notas:
     valor %= nota
 
     print(f"{quantidade} nota(s) de R$ {nota},00")
+    
