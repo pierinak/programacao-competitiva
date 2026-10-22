@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(300000)
+sys.setrecursionlimit(30000)
 
 def solve():
     input = sys.stdin.readline
